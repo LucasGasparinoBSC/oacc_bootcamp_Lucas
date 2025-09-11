@@ -1,0 +1,60 @@
+\section{Introduction}
+
+\begin{frame}
+    \frametitle{Presentation outline}
+    
+    \begin{itemize}
+        \item Motivation and Objectives
+        \item interoperability between CUDA and OpenACC
+        \item Basics of Object Orientation and Modern Fortran
+        \item OpenACC for OOP
+        \item Conclusions
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}
+	\frametitle{Motivation and Objectives}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{block}{Motivation}
+			\begin{itemize}
+				\item CASE software (Alya, SOD2D) steadily adopting OpenACC
+				\item Fortran still relevant in scientific comunity
+				\item Modern Fortran can help clean up code and improve maintainability
+				\item Still some friction in adapting GPU code to OOP concepts
+				\item Usage of CUDA in external libraries makes interoperability relevant
+			\end{itemize}
+		\end{block}
+		\column{0.5\textwidth}
+		\begin{block}{Objectives}
+			\begin{itemize}
+				\item Explore OOP concepts in Modern Fortran and C++
+				\item Demonstrate OpenACC strategies for OOP code
+				\item Analyze performance implications and imposed limitations
+				\item Showcase interoperability between CUDA and OpenACC
+				\item Provide practical examples and best practices
+			\end{itemize}
+		\end{block}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Why GPUs/OpenACC?}
+	\begin{columns}
+		\column{0.5\textwidth}
+		\begin{itemize}
+			\item Allows exploiting massive parallelism at task level with SIMT model
+			\item Modern GPUs can provide better performance per watt when well used
+			\item OpenACC provides a simpler approach to GPU programming
+			\item For most numerical applications, ACC is virtually as fast as CUDA
+			\item ACC available for both Fortran and C/C++, interoperability with CUDA
+			\item Most HPC systems and hyperscalers moving towards GPU-based architectures
+		\end{itemize}
+		\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.9\textwidth]{images/palpatine.jpg}
+		\end{figure}
+	\end{columns}
+\end{frame}

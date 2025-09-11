@@ -1,0 +1,36 @@
+\section{Closing thoughts}
+
+\begin{frame}
+    \frametitle{Conclusions: accuracy and robustness}
+    \begin{itemize}
+        \item Compressible TGV validation demonstrates SEM-ENVIT model to be a low-dissipation TVD scheme
+        \item Both the Explicit and IMEX schemes have shown excellent converge to the reference solution
+        \item Entropy viscosity has been shown to work as intended, stabilizing discontinuities without smearing turbulent structures
+        \item Explicit scheme suffers from limited CFL condition on supersonic cases, further justifying the IMEX scheme
+        \item Cylinder and CRM-HL demonstrate SOD2D's capability to simulate complex geometries and complex flows, demonstrate need for IMEX
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Conclusions: overall performance}
+    \begin{itemize}
+        \item Kernels have been shown to be efficient on GPUs for high-order elements
+        \item Explicit vs. IMEX: dependent on the CFL limit and PCG behaviour, assuming both stable
+        \item Impact of system hardware on performance has been demonstrated
+        \item Importance of FP32 arithmetics usage on GPUs addressed
+        \item SOD2D scalability has been demonstrated on a series of important systems
+        \item Importance of proper RDMA capability in modern systems made clear
+        \item SOD2D + MN5 ACC is an excellent pairing for high-performance simulations
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Future work}
+    \begin{itemize}
+        \item Test different time schemes: LS-RK and implicit variations (DIRK, ESDIRK...)
+        \item Test communication strategies in MN5, as well as benefits of NCCL library usage
+        \item Introduction of combustion models and chemical reactions
+        \item Explore possibility of using SEM tetrahedral elements
+        \item Allow for non-conformal meshes aiming at AMR
+    \end{itemize}
+\end{frame}
