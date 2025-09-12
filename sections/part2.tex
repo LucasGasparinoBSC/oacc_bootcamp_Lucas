@@ -121,3 +121,27 @@
         \item Exercise: in either case, the AOO + dynamic array can be substituted by a single 2D array. Try implementing this change and compare performance
     \end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{Example 4: Nested AOOs}
+    \begin{columns}
+        \column{0.5\textwidth}
+            \begin{itemize}
+                \item Objective: show how to handle nested AOOs with OpenACC, and imposed limitations in Fortran
+                \item Russian doll of data: a root AOO where each entry contains another AOO, which in turn contains a dynamic array...
+                \item Could easily occur in a FEM code: a 3D element contains an array of 2D faces, each face containing an array of 1D edges, each edge containing an array of nodes, each node containing an array of data...
+                \item Allocation sizes per entry need NOT be uniform! Leads to alignment issues and other evils...
+            \end{itemize}
+        \column{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.95\textwidth]{images/AOO_layout.pdf}
+            \end{figure}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \begin{itemize}
+        \item Exercise: redo the data structures using flattened arrays (like a traditional C/Fortran code) instead of AOOs. Compare complexity and performance
+    \end{itemize}
+\end{frame}
