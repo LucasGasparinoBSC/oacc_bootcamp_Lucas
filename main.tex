@@ -7,6 +7,64 @@
 \usepackage{bibentry}
 \usepackage{media9}
 \usepackage{animate}
+\usepackage{xcolor}
+\usepackage{listings}
+
+% Monokai Light colors
+\definecolor{monokailight_bg}{HTML}{F9F8F5}   % light background
+\definecolor{monokailight_fg}{HTML}{272822}   % default text
+\definecolor{monokailight_green}{HTML}{718C00} % strings
+\definecolor{monokailight_blue}{HTML}{4271AE}  % types / keywords
+\definecolor{monokailight_pink}{HTML}{8959A8}  % keywords
+\definecolor{monokailight_orange}{HTML}{C82829} % numbers / operators
+\definecolor{monokailight_grey}{HTML}{8E908C}   % comments
+\definecolor{monokailight_purple}{HTML}{A71D5D} % secondary keywords
+
+% Monokai Light C++ style
+\lstdefinestyle{cppstyle}{
+  language=C++,
+  backgroundcolor=\color{monokailight_bg},
+  basicstyle=\ttfamily\small\color{monokailight_fg},
+  keywordstyle=\color{monokailight_pink}\bfseries,
+  keywordstyle={[2]\color{monokailight_blue}},
+  keywordstyle={[3]\color{monokailight_purple}},
+  commentstyle=\color{monokailight_grey}\itshape,
+  stringstyle=\color{monokailight_green},
+  numberstyle=\tiny\color{monokailight_grey},
+  numbers=left,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=none,
+  tabsize=2,
+  rulesepcolor=\color{monokailight_bg}, % make separator same as background
+  emph={int,float,double,char,bool,unsigned,signed,void},
+  emphstyle=\color{monokailight_blue},
+}
+
+% Monokai Light Fortran style
+\lstdefinestyle{fortranstyle}{
+  language=Fortran,
+  backgroundcolor=\color{monokailight_bg},
+  basicstyle=\ttfamily\small\color{monokailight_fg},
+  keywordstyle=\color{monokailight_pink}\bfseries,
+  keywordstyle={[2]\color{monokailight_blue}},   % types
+  keywordstyle={[3]\color{monokailight_purple}}, % modules / attributes
+  commentstyle=\color{monokailight_grey}\itshape,
+  stringstyle=\color{monokailight_green},
+  numberstyle=\tiny\color{monokailight_grey},
+  numbers=left,
+  stepnumber=1,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  frame=none,
+  tabsize=2,
+  rulesepcolor=\color{monokailight_bg}, % no separator line
+  emph={real,integer,complex,logical,character,dimension,implicit,none},
+  emphstyle=\color{monokailight_blue},
+}
 
 \nobibliography*
 
