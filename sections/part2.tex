@@ -70,18 +70,25 @@
 
 \begin{frame}
     \frametitle{Why OOP is tricky with ACC?}
-    \begin{alertblock}{Addressing shenanigans}
-        \begin{itemize}
-            \item CUDA designed with C in mind: ACC follows that philosophy
-            \item Objects are simple "memory blocks", containing data and pointer addresses
-            \item Dynamic object data need to be created separately on the device!!!
-            \item Arrays of Objects require separate allocation PER OBJECT
-            \item Self instantiation on device is "possible", even for AOOs, but tricky
-            \item Nested objects are possible, but VERY tricky, especially for AOOs (better with self instantiation)
-            \item Fortran has VERY LIMITED support for OOP + ACC: no type-bound procedures on device, no nested AOOs!
-            \item Dummy "objects" in Fortran generate copies, and may result in dangling references!
-        \end{itemize}
-    \end{alertblock}
+    \begin{columns}
+        \column{0.5\textwidth}
+        \begin{alertblock}{Addressing shenanigans}
+            \begin{itemize}
+                \item CUDA designed with C in mind
+                \item Dynamic object data need to be created separately on the device!!!
+                \item Arrays of Objects require separate allocation PER OBJECT
+                \item Self instantiation on device is "possible", even for AOOs, but tricky
+                \item Nested objects are possible, but VERY tricky
+                \item Fortran has VERY LIMITED support for OOP + ACC
+                \item Dummy "objects" in Fortran generate copies, and may result in dangling references!
+            \end{itemize}
+        \end{alertblock}
+        \column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.95\textwidth]{images/dfire.jpg}
+        \end{figure}
+    \end{columns}
 \end{frame}
 
 \begin{frame}
@@ -109,6 +116,15 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Special case: Fortran OOP limitations}
+    \begin{itemize}
+        \item Objective: show limitations of Fortran OOP + OpenACC
+        \item Key detail: this example illustrates a severe limitation of Fortran OOP + OpenACC: type-bound procedures cannot be called on device!
+        \item Exercise: try to modify the example to allow it to compile. Why are the downsides of the "working" solution?
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
     \frametitle{Example 2: Arrays of Structures}
     \begin{itemize}
         \item Objective: show how to handle arrays of structures with OpenACC
@@ -124,6 +140,14 @@
 
 \begin{frame}
     \frametitle{Example 3: Self-instantiation}
+    \begin{itemize}
+        \item Objective: Show how constructors can handle "automatic" device creation of objects
+        \item Importance: Very useful in the case of nested objects, where manual allocation would be tedious and error-prone
+        \item Key detail: constructor method copies the instantiated object to device, making for a cleaner follow-up code
+        \item Exercise: try to make an Array of Objects; what happens?
+        \item Exercise: in C++, create a child class derived from the "Basic" class, adding a new dynamic array. What changes are needed?
+        \item Exercise: create another class that nests "Basic". What changes are needed?
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
